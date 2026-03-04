@@ -1,9 +1,0 @@
-services:
-  backend:
-    build: ./backend
-    ports:
-      - "9090:8080"
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:80"
