@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/roohi0/Java-Fullstack-App.git'
+            }
+        }
+
+        stage('Stop Existing Containers') {
+            steps {
+                sh 'docker-compose down'
+            }
+        }
+
+        stage('Build & Deploy Containers') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+
+        stage('Docker Cleanup') {
+            steps {
+                sh 'echo y | docker system prune -a'
+            }
+        }
+    }
+}
