@@ -1,0 +1,10 @@
+services:
+  frontend:
+    image: roohig/web-app:frontend-v3
+    ports:
+      - 3001:80
+  backend:
+    image: roohig/web-app:backend
+    ports:
+      - 9091:8080
+
